@@ -12,7 +12,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import tech.purplebeen.githubapi.model.Data
 import tech.purplebeen.githubapi.model.ViewType
-import tech.purplebeen.githubapi.network.GithubAPI
 import tech.purplebeen.githubapi.network.GithubService
 import tech.purplebeen.githubapi.util.SingleLiveEvent
 
