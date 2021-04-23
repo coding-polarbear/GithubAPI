@@ -1,5 +1,6 @@
 package tech.purplebeen.githubapi.feature.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -18,13 +19,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val adapter: GithubReccylerAdapter = GithubReccylerAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.viewModel = viewModel
         initRecyclerView()
         observeViewModel()
-        viewModel.loadUserInfo(viewModel.parseString(intent.dataString))
+        handleScheme(intent.dataString)
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        intent?.let {
+            handleScheme(it.dataString)
+        }
+    }
+
+    private fun handleScheme(dataString: String?) {
+        viewModel.loadUserInfo(viewModel.parseString(dataString))
     }
 
     private fun initRecyclerView() {
