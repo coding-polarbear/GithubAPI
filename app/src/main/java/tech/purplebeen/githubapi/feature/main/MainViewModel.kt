@@ -51,7 +51,7 @@ class MainViewModel: ViewModel() {
             .flatMap { response ->
                 val data = Data(ViewType.USER_TYPE, response.name)
                 data.profile = response.profileUrl
-                _dataList.add(Data(ViewType.USER_TYPE, response.name))
+                _dataList.add(data)
                 return@flatMap githubService.getRepoList(userName)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
