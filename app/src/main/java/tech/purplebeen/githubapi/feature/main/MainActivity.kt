@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         initRecyclerView()
         observeViewModel()
-        viewModel.loadUserInfo("purplebeen")
+        viewModel.loadUserInfo(viewModel.parseString(intent.dataString))
     }
 
     private fun initRecyclerView() {

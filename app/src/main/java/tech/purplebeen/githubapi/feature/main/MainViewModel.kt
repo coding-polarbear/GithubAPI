@@ -68,4 +68,13 @@ class MainViewModel: ViewModel() {
                 Log.e(TAG, error.message.toString())
             })
     }
+
+    fun parseString(scheme: String?): String {
+        scheme?.let {
+            val array = scheme.split("/")
+            val username = array[array.size - 1]
+            return username
+        }
+        return ""
+    }
 }
